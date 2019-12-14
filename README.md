@@ -1,6 +1,15 @@
 # nuxt-view-search-maps
 
-> My classy Nuxt.js project
+## 内容
+取得したデータを、地図上にマーカー表示として表示させる。フロントエンド側。
+> バックエンドは、functions-get-maps-data-from-cloudsql に格納。
+- APIで住所情報などデータ取得(axios)
+- GoogleMapsAPI利用
+
+
+## 環境
+- Nuxt.js
+- vue2-google-maps
 
 ## Build Setup
 
