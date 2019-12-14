@@ -1,7 +1,7 @@
 <template>
   <div class="search_result">
     <h2>検索結果</h2>
-    {{ view_search_result }}
+    <!-- {{ view_search_result }} -->
     <table>
       <tr>
         <th>address_id</th>

@@ -13,7 +13,6 @@
 
 <script>
   import {gmapApi} from 'vue2-google-maps'
-  // import axios from 'axios'
 
   export default {
     data: function() {
@@ -30,11 +29,9 @@
       
     },
     methods: {
-      // async search(event){
       search(event){
         const id = this.searched_id
         alert(id);
-        // this.$store.dispatch('view_maps/search', id)
         this.$store.dispatch('view_maps/search_id', id)
       },
       search_title(event){

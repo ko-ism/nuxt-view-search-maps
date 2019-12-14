@@ -1,9 +1,6 @@
 <template>
   <div class="map">
-    <!-- <form id="search" @submit.prevent="search"><input type="text" v-model.number="searched_id"><input type="submit"></form> -->
-    <!-- <button v-on:click="clickevent">push</button>{{view_counts}} -->
-    <!-- <button v-on:click="search(2)">search</button>{{view_search_result}} -->
-    {{ view_search_result }}
+    <!-- {{ view_search_result }} -->
     <GmapMap
       v-bind:center="center"
       v-bind:zoom="zoom"
@@ -79,27 +76,9 @@
           '<tr><th>住所</th><td>' + address + '</td></tr>' +
           '<tr><th>概要</th><td>' + overview + '</td></tr>' + 
           '<tr><th>URL</th><td>' + '<a href="'+ url + '" target="_blank">URL</a>' + '</td></tr></table>';
-      },
-      clickevent(){
-        this.$store.commit('view_maps/increment')   
-      },
-      search(event){
-        const id = this.searched_id
-        this.$store.dispatch('view_maps/search', id)
       }
-
     },
     computed: {
-      view_address_lists() {
-        // return this.$store.state.view_maps.all_data
-        return this.$store.getters['view_maps/getAllData']
-      },
-      view_searched_lists() {
-        return this.$store.getters['view_maps/getSearchedData']
-      },
-      view_counts() {
-        return this.$store.getters['view_maps/getCount']
-      },
       view_search_result() {
         return this.$store.getters['view_maps/getSearchResult']
       },
