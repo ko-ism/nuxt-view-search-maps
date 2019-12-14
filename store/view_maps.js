@@ -28,62 +28,48 @@ export const actions = {
   init: firestoreAction(({ bindFirestoreRef }) => {
     bindFirestoreRef('all_data', dataRef)
   }),
-  search_id: (context, id) => {
+  search_id: async (context, id) => {
     context.commit('clear_searched_data')
-    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    
+    axios.post(process.env.API_URL, {id : id})
     .then(function(response) {
-        // console.log(response.data.bpi)
-        context.commit('add_searched_data', response)
+        const items = response.data;
+        for (const item of items) {
+              context.commit('add_searched_data',  item)
+            };
+        
     }.bind(this))
     .catch(function(error) {
         console.log(error)
+        alert(error)
         this.hasError = true
     }.bind(this))
     .finally(function() {
         this.loading = false
     }.bind(this))
+
   },
-  search: firestoreAction((context, id) => {
+  search_title: async (context, title) => {
     context.commit('clear_searched_data')
-    dataRef.where('address_id', '==', id).get()
-    .then(snapshot => {
-      if (snapshot.empty) {
-        console.log('No matching documents.');
-        return;
-      }  
-      snapshot.forEach(doc => {
-        // console.log(doc.id, '=>', doc.data());
-        console.log(doc.data().address_id);
-        // this.add_searched_id(doc.data().address_id);
-        context.commit('add_searched_data', doc.data())
-        // state.searched_id.push(doc.data().address_id);
-      });
-    })
-    .catch(err => {
-      console.log('Error getting documents', err);
-    });
-  }),
-  search_title: firestoreAction((context, title) => {
-    context.commit('clear_searched_data')
-    console.log(title);
-    dataRef.where('title', '==', title).get()
-    .then(snapshot => {
-      if (snapshot.empty) {
-        console.log('No matching documents.');
-        return;
-      }  
-      snapshot.forEach(doc => {
-        // console.log(doc.id, '=>', doc.data());
-        console.log(doc.data().title);
-        // this.add_searched_id(doc.data().address_id);
-        context.commit('add_searched_data', doc.data())
-        // state.searched_id.push(doc.data().address_id);
-      });
-    })
-    .catch(err => {
-      console.log('Error getting documents', err);
-    });
-  }),
+    
+    axios.post(process.env.API_URL, {title : title})
+    .then(function(response) {
+        const items = response.data;
+        for (const item of items) {
+              context.commit('add_searched_data',  item)
+            };
+        
+    }.bind(this))
+    .catch(function(error) {
+        console.log(error)
+        alert(error)
+        this.hasError = true
+    }.bind(this))
+    .finally(function() {
+        this.loading = false
+    }.bind(this))
+
+  }
 }
 
 export const getters = {
