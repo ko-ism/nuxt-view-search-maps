@@ -1,0 +1,1 @@
+# nuxt-view-search-maps
