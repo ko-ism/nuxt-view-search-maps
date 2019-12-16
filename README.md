@@ -4,6 +4,7 @@
 > バックエンドは、functions-get-maps-data-from-cloudsql に格納。
 - APIで住所情報などデータ取得(axios)
 - GoogleMapsAPI利用
+- CloudRunにデプロイ(Dockerfil,cloud-build.yml)
 
 ## ハマったところ
 - Unexpected token < エラーが発生。最終的に、nuxt.config.jsの設定を修正して対処。
@@ -23,8 +24,13 @@ plugins: [
     transpile: [/^vue2-google-maps($|\/)/]
   }
 ```
-
-
+- .envに環境変数を定義しているので、.gcloudignoreファイルは以下のように設定
+```
+#.gitignore
+node_modules
+.nuxt
+!.env
+```
 
 
 # nuxt-view-search-maps-spa
