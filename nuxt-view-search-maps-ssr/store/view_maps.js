@@ -28,11 +28,11 @@ export const actions = {
     })
     .catch(function(error) {
         console.log(error)
-        alert(error)
-        this.hasError = true
+        // alert(error)
+        // this.hasError = true
     })
     .finally(function() {
-        this.loading = false
+        // this.loading = false
     })
 
   },
@@ -49,11 +49,11 @@ export const actions = {
     })
     .catch(function(error) {
         console.log(error)
-        alert(error)
-        this.hasError = true
+        // alert(error)
+        // this.hasError = true
     })
     .finally(function() {
-        this.loading = false
+        // this.loading = false
     })
 
   }
