@@ -1,11 +1,38 @@
-# nuxt-view-search-maps
-
+# nuxt-view-search-maps-ssr
 ## 内容
-取得したデータを、地図上にマーカー表示として表示させる。フロントエンド側。
+取得したデータを、地図上にマーカー表示として表示させる。フロントエンド側。Universal(SSR)モードで作成。
 > バックエンドは、functions-get-maps-data-from-cloudsql に格納。
 - APIで住所情報などデータ取得(axios)
 - GoogleMapsAPI利用
 
+## ハマったところ
+- Unexpected token < エラーが発生。最終的に、nuxt.config.jsの設定を修正して対処。
+```
+plugins: [
+    {src: "~/plugins/vue2-google-maps.js", ssr: false }
+  ],
+```
+
+```
+  build: {
+    /*
+    ** You can extend webpack config here
+    */
+    extend (config, ctx) {
+    },
+    transpile: [/^vue2-google-maps($|\/)/]
+  }
+```
+
+
+
+
+# nuxt-view-search-maps-spa
+## 内容
+取得したデータを、地図上にマーカー表示として表示させる。フロントエンド側。SPAで作成。
+> バックエンドは、functions-get-maps-data-from-cloudsql に格納。
+- APIで住所情報などデータ取得(axios)
+- GoogleMapsAPI利用
 
 ## 環境
 - Nuxt.js
