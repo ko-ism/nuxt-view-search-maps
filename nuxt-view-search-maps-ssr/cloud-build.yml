@@ -1,0 +1,5 @@
+steps:
+- name: gcr.io/cloud-builders/docker
+  args:
+    ['build','-f','Dockerfile','-t','gcr.io/bd3-nlp-dev/nuxt-view-search-maps','.']
+images: ['gcr.io/bd3-nlp-dev/nuxt-view-search-maps']

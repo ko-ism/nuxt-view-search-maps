@@ -61,6 +61,11 @@ export default {
     */
     extend (config, ctx) {
     },
-    transpile: [/^vue2-google-maps($|\/)/]
+    transpile: [/^vue2-google-maps($|\/)/],
+    server: {
+      port: process.env.PORT || 3000,
+      host: '0.0.0.0',
+      timing: false
+    }
   }
 }
