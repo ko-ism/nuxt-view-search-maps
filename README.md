@@ -4,6 +4,7 @@
 > バックエンドは、functions-get-maps-data-from-cloudsql に格納。
 - APIで住所情報などデータ取得(axios)
 - GoogleMapsAPI利用
+- CloudRunにデプロイ(Dockerfil,cloud-build.yml)
 
 ## ハマったところ
 - Unexpected token < エラーが発生。最終的に、nuxt.config.jsの設定を修正して対処。
