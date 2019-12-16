@@ -24,8 +24,13 @@ plugins: [
     transpile: [/^vue2-google-maps($|\/)/]
   }
 ```
-
-
+- .envに環境変数を定義しているので、.gcloudignoreファイルは以下のように設定
+```
+#.gitignore
+node_modules
+.nuxt
+!.env
+```
 
 
 # nuxt-view-search-maps-spa
