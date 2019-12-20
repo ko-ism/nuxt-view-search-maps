@@ -2,7 +2,7 @@
   <div>
     <h2>検索画面</h2>
     <input class="search-box" type="text" v-model.number="searched_id">
-    <nuxt-link class="btn-square" @click.native="search" to="/search_result">id検索</nuxt-link><br />
+    <nuxt-link class="btn-square" @click.native="search_id" to="/search_result">id検索</nuxt-link><br />
     <input class="search-box" type="text" v-model="searched_title">
     <nuxt-link class="btn-square" @click.native="search_title" to="/search_result">title検索</nuxt-link><br />
     
@@ -33,7 +33,7 @@
       
     },
     methods: {
-      search(event){
+      search_id(event){
         const id = this.searched_id
         // alert(id);
         this.$store.dispatch('view_maps/search_id', id)
