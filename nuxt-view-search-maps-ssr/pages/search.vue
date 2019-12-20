@@ -8,7 +8,7 @@
     
     <nuxt-link to="/view_data">全件データ表示</nuxt-link><br />
     <p>[memo]idは1,2,3のどれか。</p>
-    <p>[memo]titleは蒙古タンメン中本 渋谷店or目黒店or渋谷店のどれか。</p>
+    <p>[memo]titleは蒙古タンメン中本 品川店or目黒店or渋谷店のどれか。</p>
 
   </div>
   

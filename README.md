@@ -2,9 +2,9 @@
 ## 内容
 取得したデータを、地図上にマーカー表示として表示させる。フロントエンド側。Universal(SSR)モードで作成。
 > バックエンドは、functions-get-maps-data-from-cloudsql に格納。
-- APIで住所情報などデータ取得(axios)
-- GoogleMapsAPI利用
-- CloudRunにデプロイ(Dockerfil,cloud-build.yml)
+1. APIで住所情報などデータ取得(axios)
+2. GoogleMapsAPI利用
+3. CloudRunにデプロイ(Dockerfile,cloud-build.yml)
 
 ## ハマったところ
 - Unexpected token < エラーが発生。最終的に、nuxt.config.jsの設定を修正して対処。
