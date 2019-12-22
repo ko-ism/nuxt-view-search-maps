@@ -35,7 +35,6 @@
     methods: {
       search_id(event){
         const id = this.searched_id
-        // alert(id);
         this.$store.dispatch('view_maps/search_id', id)
       },
       search_title(event){
